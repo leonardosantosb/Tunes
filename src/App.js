@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Content from './components/Content';
-import Sidebar from './components/Sidebar';
+import { Content } from './components/Content';
+import { Sidebar } from './components/Sidebar';
 
 class App extends React.Component {
   render() {
