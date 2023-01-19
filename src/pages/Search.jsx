@@ -42,6 +42,7 @@ class Search extends Component {
         album: album1,
         pesquisainput: respostainput,
         disableButtonSearch: true,
+        respostainput: '',
       });
     });
   };
