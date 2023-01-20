@@ -35,9 +35,11 @@ class Header extends Component {
           {nameUser}
         </div>
         <nav>
+          <Link to="/" data-testid="link-to-login">Login</Link>
           <Link to="/search" data-testid="link-to-search">Search</Link>
           <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
           <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+          <Link to="/profile/edit" data-testid="link-to-profile-edit">ProfileEdit</Link>
         </nav>
       </header>
     );

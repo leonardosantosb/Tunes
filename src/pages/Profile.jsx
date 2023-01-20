@@ -6,7 +6,6 @@ import { getUser } from '../services/userAPI';
 export class Profile extends Component {
   state = {
     user: {},
-    loading: true,
   };
 
   componentDidMount() {
@@ -16,13 +15,11 @@ export class Profile extends Component {
   userApi = async () => {
     this.setState({
       user: await getUser(),
-      loading: false,
     });
   };
 
   render() {
-    const { user, loading } = this.state;
-    if (loading) return (<Loading />);
+    const { user } = this.state;
     return (
       <div data-testid="page-profile">
         <Header />
