@@ -26,20 +26,20 @@ class Header extends Component {
 
   render() {
     const { nameUser, loadingHeader } = this.state;
-    if (loadingHeader) {
-      return (<Loading />);
-    }
+
     return (
       <header data-testid="header-component">
-        <div data-testid="header-user-name">
-          {nameUser}
-        </div>
+        {(loadingHeader) ? <Loading /> : (
+          <div data-testid="header-user-name">
+            {nameUser}
+          </div>
+        )}
         <nav>
           <Link to="/" data-testid="link-to-login">Login</Link>
           <Link to="/search" data-testid="link-to-search">Search</Link>
           <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
           <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-          <Link to="/profile/edit" data-testid="link-to-profile-edit">ProfileEdit</Link>
+          <Link to="/profile/edit" data-testid="link-to-profile-edit">Editar perfil</Link>
         </nav>
       </header>
     );

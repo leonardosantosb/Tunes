@@ -16,7 +16,7 @@ class MusicCard extends Component {
   }
 
   handleChange = async ({ target: { checked } }) => {
-    const { musica } = this.props;
+    const { musica, remove } = this.props;
     this.setState({
       loading: true,
     });
@@ -24,6 +24,7 @@ class MusicCard extends Component {
       await addSong(musica);
     } else {
       await removeSong(musica);
+      if (remove) { remove(musica.trackId); }
     }
     this.setState({
       loading: false,
@@ -42,9 +43,10 @@ class MusicCard extends Component {
   render() {
     const { musica } = this.props;
     const { loading, favorito } = this.state;
-    if (loading) return (<Loading />);
+
     return (
       <div>
+        { loading && <Loading /> }
         <p>{musica.trackName}</p>
         <audio data-testid="audio-component" src={ musica.previewUrl } controls>
           <track kind="captions" />
@@ -79,6 +81,7 @@ MusicCard.propTypes = {
       ],
     ),
   ).isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 export default MusicCard;
